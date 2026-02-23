@@ -1,0 +1,24 @@
+@import 'styles/variables';
+@import 'styles/_reset.scss';
+
+* {
+    font-family:  $font-text;
+}
+
+h1,
+h2 {
+    font-family: $font-heading;
+    font-weight: $fw-medium;
+}
+
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body {
+    background-color: #1E1E2F;
+    color: #E0E0E0;
+}

@@ -1,0 +1,39 @@
+{
+  "domain": "broken-domain.com",
+  "checkedAt": "2026-02-22T19:02:00Z",
+  "summary": {
+    "status": "error",
+    "score": 34
+  },
+  "checks": {
+    "dns": {
+      "status": "error",
+      "aRecords": [],
+      "aaaaRecords": [],
+      "ttl": null,
+      "nameservers": []
+    },
+    "ssl": {
+      "status": "error",
+      "issuer": null,
+      "validFrom": null,
+      "validTo": null,
+      "daysRemaining": null,
+      "protocol": null
+    },
+    "http": {
+      "status": "error",
+      "statusCode": 500,
+      "responseTimeMs": 1200,
+      "redirects": 0,
+      "finalUrl": null
+    },
+    "mail": {
+      "status": "warning",
+      "mxRecords": [],
+      "spf": null,
+      "dmarc": null,
+      "dkim": false
+    }
+  }
+}
