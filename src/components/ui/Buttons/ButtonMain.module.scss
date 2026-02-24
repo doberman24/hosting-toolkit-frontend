@@ -1,0 +1,31 @@
+@import '@/styles/variables';
+
+.button {
+    background: $button-bg;
+    border: 1px solid $border-color-main;
+    border-radius: 10px;
+    color: $text-color-main;
+    font-size: $text;
+    font-family: $font-text;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    font-weight: $fw-medium;
+    box-shadow: $shad-butt;
+    transition: all 0.2s ease;
+}
+.button:hover {
+    transform: translateY(-1px);
+    box-shadow: $shad-butt-hover;
+    cursor: pointer;
+}
+
+.button:active {
+    transform: translateY(0);
+    border-color: $border-color-active;    
+    box-shadow:$shad-butt-active;
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: $shad-focus, $shad-butt
+}

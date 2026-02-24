@@ -1,5 +1,5 @@
+// TYPOGRAPHY
 $font-heading: 'Manrope', sans-serif;
-$font-subtitle: 'Work Sans', sans-serif;
 $font-text: 'Roboto', sans-serif;
 
 $h1: 36px;
@@ -8,7 +8,66 @@ $subtitle: 18px;
 $text: 16px;
 $small: 14px;
 
+$fw-light: 300;
 $fw-regular: 400;
 $fw-medium: 500;
 $fw-semibold: 600;
 $fw-bold: 700;
+
+
+// COLOR
+$main-bg: radial-gradient(
+    circle at 20% 20%,
+    #1c213a 0%,
+    #141824 50%,
+    #0f121a 100%
+);
+$button-bg: linear-gradient(
+    180deg,
+    #2b314b 0%,
+    #22283d 100%
+);
+$color-bg-card: rgba(30, 36, 55, 0.75);
+$color-solid-card: #1e2437;
+$color-bg-input: rgba(25, 30, 48, 0.9);
+
+$border-color-main: rgba(255, 255, 255, 0.08);
+$border-color-card: rgba(255, 255, 255, 0.05);
+$border-color-active: rgba(255,255,255,0.06);
+
+$text-color-main: #e6e8e0;
+$text-color-second: #9aa1b5;
+$text-color-muted: #6f768c;
+
+$color-accent: #FF7A18;
+$color-accent-soft: rgba(255, 122, 24, 0.25);
+
+$color-success: #4caf50;
+$color-warning: #ffb020;
+$color-error:   #f44336;
+
+
+// SHADOWS
+$shad-input: 
+    inset 0 1px 2px rgba(0,0,0,0.6),
+    0 4px 12px rgba(0,0,0,0.35);    
+
+$shad-butt: 
+    0 6px 18px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+$shad-butt-hover:
+    0 10px 24px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+$shad-butt-active:
+    0 4px 12px rgba(0,0,0,0.6),
+    inset 0 2px 4px rgba(0,0,0,0.6);
+
+$shad-card:
+    0 8px 24px rgba(0, 0, 0, 0.45),
+    0 2px 6px rgba(0, 0, 0, 0.4);
+$shad-card-hover:
+    0 14px 40px rgba(0, 0, 0, 0.55),
+    0 4px 10px rgba(0, 0, 0, 0.45);
+
+$shad-focus:
+    0 0 0 2px $color-accent-soft;

@@ -1,0 +1,24 @@
+@import '@/styles/variables';
+
+.input {
+    border: $border-color-main;
+    font-size: $text;
+    background-color: $color-bg-input;
+    width: 500px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    color: $text-color-main;
+    font-family: $font-text;
+    font-weight: $fw-light;
+    box-shadow: $shad-input;
+    transition: all 0.2s ease;
+    border: 1px solid $border-color-main;
+}
+.input::placeholder {
+    color: $text-color-second;
+}
+.input:focus {
+    outline: none;
+    border: 1px solid $color-accent;
+    box-shadow: $shad-focus;
+}

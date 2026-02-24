@@ -1,0 +1,57 @@
+@import '@/styles/variables';
+@import '@/styles/global';
+
+.headerBlock {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid $border-color-main;
+}
+.headerBlock h1 {
+    width: fit-content;
+    font-size: $h1;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $border-color-main;
+    text-transform: capitalize;
+}
+.headerBlock p {
+    margin: 15px;
+    width: fit-content;
+    font-family: $font-text ;
+    font-size: $subtitle;
+    font-weight: $fw-light;
+}
+
+
+.findDomainBlock {
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+    justify-content: center;
+}
+.formBlock {
+    margin-bottom: 40px;
+    display: flex;
+    gap: 15px;
+}
+
+
+.responseBlock {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+    border-bottom: 2px solid $border-color-main;
+    border-top: 2px solid $border-color-main;
+    padding: 30px;
+}
+
+.resaultBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    margin-top: 40px;
+}
