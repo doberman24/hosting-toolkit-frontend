@@ -1,0 +1,31 @@
+@import '@/styles/variables';
+
+.loaderBlock {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px
+}
+
+.spinner {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    box-shadow: $shad-input;
+    border-radius: 50%;
+    border: 2px solid $color-accent;
+    border-top-color: rgba(230, 232, 224, 0.1);
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.loaderBlock h4 {
+    font-family: $font-subtitle;
+    font-size: $subtitle;
+    font-weight: $fw-regular;
+}

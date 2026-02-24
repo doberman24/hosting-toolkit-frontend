@@ -6,7 +6,7 @@
     border-radius: 10px;
     color: $text-color-main;
     font-size: $text;
-    font-family: $font-text;
+    font-family: $font-heading;
     text-transform: uppercase;
     padding: 12px 20px;
     font-weight: $fw-medium;
@@ -28,4 +28,23 @@
 .button:focus-visible {
   outline: none;
   box-shadow: $shad-focus, $shad-butt
+}
+
+button:disabled {
+    background: $button-disabled-bg;
+    border-color: $button-disabled-border;
+    color: $button-disabled-text;
+    box-shadow: $shad-butt-disabled;
+    cursor: default;
+    transform: none;
+}
+.button:disabled:hover {
+    box-shadow: $shad-butt-disabled;
+    cursor: default;
+    transform: none;
+}
+.button:disabled:active {
+    box-shadow: $shad-butt-disabled;
+    cursor: default;
+    transform: none;
 }

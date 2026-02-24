@@ -1,5 +1,6 @@
 // TYPOGRAPHY
-$font-heading: 'Manrope', sans-serif;
+$font-heading: 'Montserrat', sans-serif;
+$font-subtitle: 'Open Sans', sans-serif;
 $font-text: 'Roboto', sans-serif;
 
 $h1: 36px;
@@ -27,6 +28,10 @@ $button-bg: linear-gradient(
     #2b314b 0%,
     #22283d 100%
 );
+$button-disabled-bg: #1a1f2e;
+$button-disabled-border: rgba(255,255,255,0.04);
+$button-disabled-text: #5f667d;
+
 $color-bg-card: rgba(30, 36, 55, 0.75);
 $color-solid-card: #1e2437;
 $color-bg-input: rgba(25, 30, 48, 0.9);
@@ -61,6 +66,7 @@ $shad-butt-hover:
 $shad-butt-active:
     0 4px 12px rgba(0,0,0,0.6),
     inset 0 2px 4px rgba(0,0,0,0.6);
+$shad-butt-disabled: inset 0 1px 2px rgba(0,0,0,0.6);
 
 $shad-card:
     0 8px 24px rgba(0, 0, 0, 0.45),

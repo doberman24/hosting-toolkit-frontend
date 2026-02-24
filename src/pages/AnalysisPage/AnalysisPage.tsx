@@ -1,6 +1,6 @@
 import { getAnalysis } from "@/redux/slices/analysis.slice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from './AnalysisPage.module.scss';
 import InputMain from "@/components/ui/Inputs/InputMain";
 import Card from "@/components/ui/Card/Card";
@@ -11,15 +11,22 @@ const AnalysisPage = () => {
 
   const dispatch = useAppDispatch();
   const {loading, analysisData} = useAppSelector(state => state.analysis);
+  const [domain, setDomain] = useState<string | null>(null);
+  
 
   useEffect(() => {
     dispatch(getAnalysis('example.com'));
+    setDomain('example.com');
   }, []);
 
   if (loading || !analysisData) {
     return <div>Загрузка</div>
   }
-  console.log(analysisData);
+
+  const checkDomain = (e: React.SyntheticEvent<HTMLFormElement>, domain: string | null) => {
+    e.preventDefault();
+    console.log(domain);
+  }
 
   return (
     <div className={styles.pageContainer}>
@@ -28,12 +35,12 @@ const AnalysisPage = () => {
         <p>Быстрая диагностика проблем с DNS, SSL, HTTP и email</p>
       </div>
       <div className={styles.findDomainBlock}>
-        <form className={styles.formBlock}>
+        <form className={styles.formBlock} onSubmit={(e) => checkDomain(e, domain)}>
           <label>
             <InputMain />
           </label>
           <label>
-            <ButtonMain />
+            <ButtonMain>Проверить</ButtonMain>
           </label>
         </form>
         <LoaderMain />
