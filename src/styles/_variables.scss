@@ -3,12 +3,13 @@ $font-heading: 'Montserrat', sans-serif;
 $font-subtitle: 'Open Sans', sans-serif;
 $font-text: 'Roboto', sans-serif;
 
-$h1: 36px;
-$h2: 24px;
-$subtitle: 18px;
-$text: 16px;
-$small: 14px;
+$size-h1: 36px;
+$size-h2: 24px;
+$size-subtitle: 18px;
+$size-text: 16px;
+$size-small: 14px;
 
+$fw-lighter: 100;
 $fw-light: 300;
 $fw-regular: 400;
 $fw-medium: 500;
@@ -40,9 +41,9 @@ $border-color-main: rgba(255, 255, 255, 0.08);
 $border-color-card: rgba(255, 255, 255, 0.05);
 $border-color-active: rgba(255,255,255,0.06);
 
-$text-color-main: #e6e8e0;
-$text-color-second: #9aa1b5;
-$text-color-muted: #6f768c;
+$color-text-main: #e6e8e0;
+$color-text-second: #9aa1b5;
+$color-text-muted: #6f768c;
 
 $color-accent: #FF7A18;
 $color-accent-soft: rgba(255, 122, 24, 0.25);

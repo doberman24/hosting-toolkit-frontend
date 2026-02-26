@@ -1,14 +1,14 @@
-@import 'styles/variables';
-@import 'styles/_reset.scss';
+@use 'styles/variables' as vars;
+@use 'styles/reset';
 
 * {
-    font-family:  $font-text;
+    font-family:  vars.$font-text;
 }
 
 h1,
 h2 {
-    font-family: $font-heading;
-    font-weight: $fw-medium;
+    font-family: vars.$font-heading;
+    font-weight: vars.$fw-medium;
 }
 
 
@@ -19,6 +19,6 @@ h2 {
 }
 
 body {
-    background: $main-bg;
-    color: $text-color-main;
+    background: vars.$main-bg;
+    color: vars.$color-text-main;
 }

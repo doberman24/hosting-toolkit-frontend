@@ -1,9 +1,12 @@
 export type Status = 'ok' | 'warning' | 'error';
 
-export interface AnalysisError {
-    statusCode: number,
-    statusText: string,
-    message: string | null,
-    details?: any,
-    timestamp: string,
+export interface DescriptionStatusType {
+    ok: string,
+    warning: string,
+    error: string
+}
+
+export interface IStatusDescription {
+    statusDescription: DescriptionStatusType,
+    getStatus(status: Status): string,
 }

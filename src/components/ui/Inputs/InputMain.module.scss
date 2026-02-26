@@ -1,24 +1,24 @@
-@import '@/styles/variables';
+@use '@/styles/variables' as vars;
 
 .input {
-    border: $border-color-main;
-    font-size: $text;
-    background-color: $color-bg-input;
+    border: vars.$border-color-main;
+    font-size: vars.$size-text;
+    background-color: vars.$color-bg-input;
     width: 500px;
     padding: 12px 20px;
     border-radius: 10px;
-    color: $text-color-main;
-    font-family: $font-text;
-    font-weight: $fw-light;
-    box-shadow: $shad-input;
+    color: vars.$color-text-main;
+    font-family: vars.$font-text;
+    font-weight: vars.$fw-light;
+    box-shadow: vars.$shad-input;
     transition: all 0.2s ease;
-    border: 1px solid $border-color-main;
+    border: 1px solid vars.$border-color-main;
 }
 .input::placeholder {
-    color: $text-color-second;
+    color: vars.$color-text-second;
 }
 .input:focus {
     outline: none;
-    border: 1px solid $color-accent;
-    box-shadow: $shad-focus;
+    border: 1px solid vars.$color-accent;
+    box-shadow: vars.$shad-focus;
 }

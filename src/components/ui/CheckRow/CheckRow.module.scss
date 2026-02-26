@@ -1,0 +1,27 @@
+@use '@/styles/variables' as vars;
+
+.checkRowBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.checkRowBlock:not(:last-child) {
+    border-bottom: 1px solid vars.$border-color-card;
+}
+
+.nameProperty {
+    font-size: vars.$size-text;
+    color: vars.$color-text-muted;
+}
+
+.description {
+    padding-left: 20px;
+    font-size: vars.$size-subtitle;
+    font-weight: vars.$fw-light;
+}
+.descriptionValue {
+    display: flex;
+    gap: 20px;
+}

@@ -1,5 +1,5 @@
-@import '@/styles/variables';
-@import '@/styles/global';
+@use '@/styles/variables' as vars;
+@use '@/styles/global';
 
 .headerBlock {
     display: flex;
@@ -7,21 +7,21 @@
     width: 100%;
     align-items: center;
     padding-bottom: 15px;
-    border-bottom: 2px solid $border-color-main;
+    border-bottom: 2px solid vars.$border-color-main;
 }
 .headerBlock h1 {
     width: fit-content;
-    font-size: $h1;
+    font-size: vars.$size-h1;
     padding-bottom: 10px;
-    border-bottom: 2px solid $border-color-main;
+    border-bottom: 2px solid vars.$border-color-main;
     text-transform: capitalize;
 }
 .headerBlock p {
     margin: 15px;
     width: fit-content;
-    font-family: $font-text ;
-    font-size: $subtitle;
-    font-weight: $fw-light;
+    font-family: vars.$font-text ;
+    font-size: vars.$size-subtitle;
+    font-weight: vars.$fw-light;
 }
 
 
@@ -41,10 +41,10 @@
 .responseBlock {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 25px;
     width: 100%;
-    border-bottom: 2px solid $border-color-main;
-    border-top: 2px solid $border-color-main;
+    border-bottom: 2px solid vars.$border-color-main;
+    border-top: 2px solid vars.$border-color-main;
     padding: 30px;
 }
 

@@ -1,0 +1,67 @@
+@use '@/styles/variables' as vars;
+
+.cardBlock {
+    border: 2px solid vars.$border-color-card;
+    box-shadow: vars.$shad-card;
+    border-radius: 10px;
+    background-color: vars.$color-bg-card;
+    width: 500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.headerCard {
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 2px solid vars.$border-color-main;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.cardBlock p {
+    font-size: vars.$size-text;
+    font-weight: vars.$fw-light;
+    color: vars.$color-text-second;
+}
+
+.showStatus {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    align-self: end;
+}
+.showStatus.ok {
+    background-color: vars.$color-success;
+}
+.showStatus.warning {
+    background-color: vars.$color-warning;
+}
+.showStatus.error {
+    background-color: vars.$color-error;
+}
+
+.cardBlock:nth-child(1) {
+    justify-self: end;
+    align-self: end;
+}
+.cardBlock:nth-child(2) {
+    justify-self: start;
+    align-self: end;
+}
+.cardBlock:nth-child(3) {
+    justify-self: end;
+    align-self: start;
+}
+.cardBlock:nth-child(4) {
+    justify-self: start;
+    align-self: start;
+}
+
+.cardDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

@@ -1,4 +1,5 @@
-import type { AnalysisError, Status } from "./status.types"
+import type { Status } from "./status.types";
+import type { AnalysisError } from './error.types';
 
 
 export interface AnalysisState {
@@ -36,7 +37,7 @@ export interface SSLResult {
     issuer: string | null,
     validFrom: string | null,
     validTo: string | null,
-    daysRemaining: Number | null,
+    daysRemaining: number | null,
     protocol: string | null
 }
 
@@ -50,11 +51,15 @@ export interface HTTPResult {
 
 export interface MailResult {
     status: Status,
-    mxRecords: {
-        host: string,
-        priority: number
-    }[],
+    mxRecords: MXRecordsType[],
     spf: string | null,
     dmarc: string | null,
     dkim: boolean
 }
+
+export type MXRecordsType = {
+    host: string,
+    priority: number
+}
+
+export type CardFieldValue = Status | string | string[] | number | boolean | MXRecordsType | null;

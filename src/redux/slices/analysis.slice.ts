@@ -3,7 +3,7 @@ import type { AnalysisState } from "@/types/analysis.types";
 import { Api } from "@/api/analysis.api";
 import type { AnalysisResponse } from "@/types/api.types";
 import { AxiosError } from 'axios';
-import type { AnalysisError } from "@/types/status.types";
+import type { AnalysisError } from '@/types/error.types';
 
 const initialState: AnalysisState = {
   analysisData: null,
