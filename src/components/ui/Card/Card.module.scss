@@ -21,20 +21,36 @@
 .summaryBlock {
     width: 100%;
     padding: 10px;
-    min-height: 136px;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
 }
 .summaryBlock .headerCard {
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     border-bottom: 1px solid vars.$border-color-main;
 }
-.summaryBlock p {
-    display: block;
-    margin-top: 10px;
+.summaryBlock .summaryStatus {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 5px;
+}
+.summaryBlock .summaryStatus > p {
     font-weight: vars.$fw-light !important;
-    border-bottom: 1px solid vars.$border-color-main;
-    height: 60px;
-    overflow-y: auto;
+    font-size: vars.$size-subtitle;
+    line-height: 1.5;
 }
+.summaryBlock .showStatus {
+    position: relative;
+    flex-direction: row;
+    gap: 10px;
+    align-self: start;
+}
+.summaryBlock .showStatus p {
+    text-transform: none !important;
+    font-size: vars.$size-text !important;
+}
+
 
 .headerCard {
     position: relative;
@@ -96,7 +112,6 @@
 .cardDetails {
     display: flex;
     flex-direction: column;
-    // gap: 10px;
     border: 1px solid vars.$border-color-main;
     border-radius: 8px;
     margin: 20px 0 0;
@@ -106,6 +121,9 @@
 .cardBlock:hover .cardDetails,
 .cardBlock:hover .noData {
     border: 1px solid vars.$color-accent-soft;
+}
+.summaryBlock:hover .noData {
+    border: none;
 }
 
 .noData {
@@ -123,8 +141,11 @@
     margin: 20px 0 0;
     transition: all 0.2s ease;
 }
-.noData h4 {
+h4, b {
     text-transform: uppercase;
+    font-weight: vars.$fw-semibold;
+    color: vars.$color-text-main;
+    margin-right: 10px;
 }
 .noData p {
     text-align: center;
@@ -136,4 +157,5 @@
     gap: 5px;
     padding: 10px;
     margin: 10px 0 0;
+    border: none;
 }

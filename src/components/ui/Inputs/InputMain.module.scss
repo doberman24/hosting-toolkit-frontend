@@ -22,3 +22,11 @@
     border: 1px solid vars.$color-accent;
     box-shadow: vars.$shad-focus;
 }
+
+.input:disabled {
+    background: rgba(25, 30, 48, 0.45);
+    border: 1px solid vars.$button-disabled-border;
+    color: vars.$button-disabled-text;
+    box-shadow: vars.$shad-butt-disabled;
+    cursor: not-allowed;
+}

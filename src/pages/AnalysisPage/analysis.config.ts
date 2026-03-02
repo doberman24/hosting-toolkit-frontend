@@ -31,6 +31,11 @@ export const configStatusMail: StatusDescription = new StatusDescription (
     'Отсутствуют некоторые механизмы защиты',
     'Обнаружены критические ошибки почты'
 );
+export const configStatusSummary: StatusDescription = new StatusDescription (
+    'Сайт работает корректно',
+    'Есть незначительные проблемы',
+    'Обнаружены критические ошибки'
+)
 
 export const keyMapping = {
     domain: 'Домен',

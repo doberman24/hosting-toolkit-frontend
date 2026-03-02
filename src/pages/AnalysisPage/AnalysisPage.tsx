@@ -8,6 +8,7 @@ import ButtonMain from "@/components/ui/Buttons/ButtonMain";
 import LoaderMain from "@/components/ui/Loaders/LoaderMain";
 import { configStatusDNS, configStatusHTTP, configStatusMail, configStatusSSL } from "./analysis.config";
 import ResultCard from "@/components/ui/Card/ResultCard";
+import LoadScreen from "@/components/ui/Loaders/LoaderScreen";
 
 const AnalysisPage = () => {
 
@@ -29,6 +30,7 @@ const AnalysisPage = () => {
 
   return (
     <div className={styles.pageContainer}>
+      <LoadScreen vision={loading} />
       <div className={styles.headerBlock}>
         <h1>Полная диагностика сайта</h1>
         <p>Быстрая диагностика проблем с DNS, SSL, HTTP и email</p>
@@ -36,14 +38,16 @@ const AnalysisPage = () => {
       <div className={styles.findDomainBlock}>
         <form className={styles.formBlock} onSubmit={(e) => checkDomain(e, domain)}>
           <label>
-            <InputMain onChange={handleChange} />
+            <InputMain required={true} onChange={handleChange} disabled={loading}/>
           </label>
           <label>
-            <ButtonMain disabled={disabledCheck}>Проверить</ButtonMain>
+            <ButtonMain disabled={disabledCheck || loading}>Проверить</ButtonMain>
           </label>
         </form>
         {loading ? <LoaderMain /> 
-          : <ResultCard data={analysisData?.summary} />
+          : <div className={styles.validResponse}>
+              {!analysisData ? 'Для вывода результатов укажите домен и нажмите "Проверить' : 'Проверка выполнена. Данные загружены.'}
+            </div>
         }
       </div>
       <div className={styles.responseBlock}>
@@ -53,8 +57,7 @@ const AnalysisPage = () => {
         <Card nameData={'Mail Security'} data={analysisData?.checks.mail} statusCard={configStatusMail} />
       </div>
       <div className={styles.resaultBlock}>
-        <div className={styles.resault}>Общий статус</div>
-        <div className={styles.summary}>Краткий вывод</div>
+        <ResultCard data={analysisData?.summary} />
       </div>
     </div>
   )
