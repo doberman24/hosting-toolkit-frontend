@@ -3,42 +3,43 @@
   "checkedAt": "2026-02-22T18:45:00Z",
   "summary": {
     "status": "warning",
-    "score": 82
+    "score": 82,
+    "message": "Сертификат SSL действителен. DNS настроен корректно. Обнаружены задержки ответа сервера (750мс), что может влиять на производительность." 
   },
   "checks": {
     "dns": {
       "status": "ok",
-      "aRecords": ["93.184.216.34"],
-      "aaaaRecords": [],
-      "ttl": 3600,
-      "nameservers": ["ns1.example.com", "ns2.example.com"]
+      "aRecords": {"data": ["93.184.216.34"], "status": "ok"},
+      "aaaaRecords": {"data": [], "status": "warning"},
+      "ttl": {"data": 3600, "status": "ok"},
+      "nameservers": {"data": ["ns1.example.com", "ns2.example.com"], "status": "ok"}
     },
     "ssl": {
       "status": "warning",
-      "issuer": "Let's Encrypt",
-      "validFrom": "2025-12-01T00:00:00Z",
-      "validTo": "2026-03-01T00:00:00Z",
-      "daysRemaining": 7,
-      "protocol": "TLS 1.3"
+      "issuer": {"data": "Let's Encrypt", "status": "ok"},
+      "validFrom": {"data": "2025-12-01T00:00:00Z", "status": "ok"},
+      "validTo": {"data": "2026-03-01T00:00:00Z", "status": "ok"},
+      "daysRemaining": {"data": 7, "status": "ok"},
+      "protocol": {"data": "TLS 1.3", "status": "ok"}
     },
     "http": {
       "status": "ok",
-      "statusCode": 200,
-      "responseTimeMs": 184,
-      "redirects": 1,
-      "finalUrl": "https://example.com"
+      "statusCode": {"data": 200, "status": "ok"},
+      "responseTimeMs": {"data": 184, "status": "ok"},
+      "redirects": {"data": 1, "status": "ok"},
+      "finalUrl": {"data": "https://example.com", "status": "ok"}
     },
     "mail": {
       "status": "ok",
-      "mxRecords": [
+      "mxRecords": {"data": [
         {
           "host": "mail.example.com",
           "priority": 10
         }
-      ],
-      "spf": "v=spf1 include:_spf.example.com ~all",
-      "dmarc": "v=DMARC1; p=none;",
-      "dkim": true
+      ], "status": "ok"},
+      "spf": {"data": "v=spf1 include:_spf.example.com ~all", "status": "ok"},
+      "dmarc": {"data": "v=DMARC1; p=none;", "status": "ok"},
+      "dkim": {"data": true, "status": "ok"}
     }
   }
 }

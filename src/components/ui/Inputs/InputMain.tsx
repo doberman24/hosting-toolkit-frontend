@@ -1,10 +1,11 @@
 import styles from './InputMain.module.scss';
 
-const InputMain = () => {
+const InputMain = ({onChange}: {onChange: React.ChangeEventHandler<HTMLInputElement>}) => {
   return (
     <input 
       className={styles.input} 
-      type="text" 
+      type="text"
+      onChange={onChange} 
       placeholder="Введите домен..." 
     />
   )

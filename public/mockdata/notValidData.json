@@ -8,32 +8,32 @@
   "checks": {
     "dns": {
       "status": "error",
-      "aRecords": [],
-      "aaaaRecords": [],
+      "aRecords": {"data": [], "status": "not_found"},
+      "aaaaRecords": {"data": [], "status": "not_found"},
       "ttl": null,
-      "nameservers": []
+      "nameservers": {"data": [], "status": "undefined"}
     },
     "ssl": {
       "status": "error",
-      "issuer": null,
+      "issuer": {"data": null, "status": "undefined"},
       "validFrom": null,
-      "validTo": null,
-      "daysRemaining": null,
-      "protocol": null
+      "validTo": {"data": null, "status": "undefined"},
+      "daysRemaining": {"data": null, "status": "expire"},
+      "protocol": {"data": null, "status": "undefined"}
     },
     "http": {
       "status": "error",
-      "statusCode": 500,
-      "responseTimeMs": 1200,
-      "redirects": 0,
-      "finalUrl": null
+      "statusCode": {"data": 500, "status": "not_response"},
+      "responseTimeMs": {"data": 1200, "status": "ok"},
+      "redirects": {"data": 0, "status": "ok"},
+      "finalUrl": {"data": null, "status": "undefined"}
     },
     "mail": {
       "status": "warning",
-      "mxRecords": [],
-      "spf": null,
-      "dmarc": null,
-      "dkim": false
+      "mxRecords": {"data": [], "status": "no_records"},
+      "spf": {"data": null, "status": "no_records"},
+      "dmarc": {"data": null, "status": "no_records"},
+      "dkim": {"data": false, "status": "no_records"}
     }
   }
 }

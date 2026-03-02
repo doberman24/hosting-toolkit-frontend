@@ -10,12 +10,34 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;    
+}
+.cardBlock:hover {
+    transform: scale(0.995);  
+    background-color: vars.$color-solid-card; 
+}
+
+.summaryBlock {
+    width: 100%;
+    padding: 10px;
+    min-height: 136px;
+}
+.summaryBlock .headerCard {
+    padding-bottom: 10px;
+    border-bottom: 1px solid vars.$border-color-main;
+}
+.summaryBlock p {
+    display: block;
+    margin-top: 10px;
+    font-weight: vars.$fw-light !important;
+    border-bottom: 1px solid vars.$border-color-main;
+    height: 60px;
+    overflow-y: auto;
 }
 
 .headerCard {
     position: relative;
-    padding-bottom: 10px;
-    border-bottom: 2px solid vars.$border-color-main;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -28,19 +50,30 @@
 
 .showStatus {
     position: absolute;
+    display: flex;
+    align-self: end;
+    flex-direction: row-reverse;
+    gap: 10px;
+    align-items: center;
+}
+.iconStatus {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    align-self: end;
 }
-.showStatus.ok {
+.iconStatus.ok {
     background-color: vars.$color-success;
 }
-.showStatus.warning {
+.iconStatus.warning {
     background-color: vars.$color-warning;
 }
-.showStatus.error {
+.iconStatus.error {
     background-color: vars.$color-error;
+}
+.showStatus p {
+    font-size: vars.$size-small;
+    color: vars.$color-text-muted;
+    text-transform: uppercase;
 }
 
 .cardBlock:nth-child(1) {
@@ -63,5 +96,44 @@
 .cardDetails {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    // gap: 10px;
+    border: 1px solid vars.$border-color-main;
+    border-radius: 8px;
+    margin: 20px 0 0;
+    padding: 10px 20px;
+    height: 100%;
+}
+.cardBlock:hover .cardDetails,
+.cardBlock:hover .noData {
+    border: 1px solid vars.$color-accent-soft;
+}
+
+.noData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    font-size: vars.$size-subtitle;
+    font-weight: vars.$fw-regular;
+    color: vars.$color-text-second;
+    gap: 15px;
+    border: 1px solid vars.$border-color-main;
+    border-radius: 8px;
+    margin: 20px 0 0;
+    transition: all 0.2s ease;
+}
+.noData h4 {
+    text-transform: uppercase;
+}
+.noData p {
+    text-align: center;
+    line-height: 1.5;
+}
+
+.summaryBlock .noData {
+    height: fit-content;
+    gap: 5px;
+    padding: 10px;
+    margin: 10px 0 0;
 }

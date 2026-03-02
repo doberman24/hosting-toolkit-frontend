@@ -60,74 +60,75 @@ export const keyMapping = {
 
 export type FieldName = keyof typeof keyMapping;
 
-export const emptyStatus = {
+export const emptyStatuses = {
     aRecords: {
-        warning: '—',
-        error: 'A-записи не найдены'
+        empty: '—',
+        not_found: 'A-записи не найдены'
     },
     aaaaRecords: {
         warning: 'IPv6 не настроен',
-        error: 'AAAA-записи не найдены'
+        not_found: 'AAAA-записи не найдены'
     },
     ttl: {
-        warning: '—',
-        error: '—'
+        empty: '—',
+        undefined: '—'
     },
     nameservers: {
-        warning: '—',
-        error: 'NS-серверы не определены'
+        empty: '—',
+        undefined: 'NS-серверы не определены'
     },
     issuer: {
-        warning: 'Сертификат не найден',
-        error: 'Сертификат отсутствует  '
+        empty: 'Сертификат не найден',
+        undefined: 'Сертификат отсутствует  '
     },
-    validFrom: {
-        warning: '—',
-        error: '—'
+    validFrom:{
+        empty: '—',
+        undefined: '—'
     },
     validTo: {
-        warning: '—',
-        error: 'Срок действия не определён'
+        empty: '—',
+        undefined: 'Срок действия не определён'
     },
     daysRemaining: {
-        warning: '—',
-        error: 'Срок действия истёк'
+        empty: '—',
+        expire: 'Срок действия истёк'
     },
     protocol: {
-        warning: '—',
-        error: 'Протокол не определён'
+        empty: '—',
+        undefined: 'Протокол не определён'
     },
     statusCode: {
-        warning: '—',
-        error: 'Сервер не отвечает'
+        empty: '—',
+        not_response: 'Сервер не отвечает'
     },
     responseTimeMs: {
-        warning: '—',
-        error: 'Нет ответа'
+        empty: '—',
+        not_response: 'Нет ответа'
     },
     redirects: {
-        warning: 'Нет',
-        error: 'слишком много редиректов'
+        ok: 'Нет',
+        many_redirects: 'слишком много редиректов',
+        undefined: '—'
     },
     finalUrl: {
         warning: '—',
-        error: 'Не получен'
+        undefined: 'Не получен'
     },
     mxRecords: {
-        warning: 'MX-записи отсутствуют',
-        error: 'MX-записи не найдены'
+        no_records: 'MX-записи отсутствуют',
+        not_found: 'MX-записи не найдены'
     },
     spf: {
-        warning: 'SPF-запись отсутствует',
-        error: 'SPF не настроен'
+        no_records: 'SPF-запись отсутствует',
+        not_configured: 'SPF не настроен'
     },
     dmarc: {
-        warning: 'DMARC-запись отсутствует',
-        error: 'DMARC не настроен'
+        no_records: 'DMARC-запись отсутствует',
+        not_configured: 'DMARC не настроен'
     },
     dkim: {
-        warning: 'Нет',
-        error: 'DKIM не настроен'
+        no_records: 'Нет',
+        not_configured: 'DKIM не настроен'
     }
 } as const;
-export type EmptyValue = keyof typeof emptyStatus;
+export type EmptyValueKeys = keyof typeof emptyStatuses;
