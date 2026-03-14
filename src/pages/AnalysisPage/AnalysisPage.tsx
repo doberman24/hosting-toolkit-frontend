@@ -15,12 +15,11 @@ const AnalysisPage = () => {
   const dispatch = useAppDispatch();
   const {loading, analysisData} = useAppSelector(state => state.analysis);
   const [domain, setDomain] = useState<string>('');
-  const [disabledCheck, setDisabledCheck] = useState<boolean>(true);
+  const [disabledCheck, setDisabledCheck] = useState<boolean>(!domain);
 
   const checkDomain = (e: React.SyntheticEvent<HTMLFormElement>, domain: string) => {
     e.preventDefault();
     dispatch(getAnalysis(domain));
-    console.log(domain);
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

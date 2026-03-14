@@ -27,119 +27,45 @@ export interface AnalysisData {
 
 export interface DNSResult {
     status: Status,
-    aRecords: {
-        data: string[],
-        status: string
-    },
-    aaaaRecords: {
-        data: string[],
-        status: string
-    },
-    ttl: number | null,
-    nameservers: {
-        data: string[],
-        status: string
-    },
+    aRecords: FieldResult<string[]>,
+    aaaaRecords: FieldResult<string[]>,
+    ttl: FieldResult<number | null>,
+    nameservers: FieldResult<NameServerType[]>,
 }
 
 export interface SSLResult {
     status: Status,
-    issuer: {
-        data: string | null,
-        status: string
-    },
-    validFrom: {
-        data: string | null,
-        status: string
-    },
-    validTo: {
-        data: string | null,
-        status: string
-    },
-    daysRemaining: {
-        data: number | null,
-        status: string
-    },
-    protocol: {
-        data: string | null,
-        status: string
-    }
+    issuer: FieldResult<string | null>,
+    validFrom: FieldResult<string | null>,
+    validTo: FieldResult<string | null>,
+    daysRemaining: FieldResult<number | null>,
+    protocol: FieldResult<string | null>
 }
 
 export interface HTTPResult {
     status: Status,
-    statusCode: {
-        data: number,
-        status: string
-    },
-    responseTimeMs: {
-        data: number,
-        status: string
-    },
-    redirects: {
-        data: number,
-        status: string
-    },
-    finalUrl: {
-        data: string | null,
-        status: string
-    }
+    statusCode: FieldResult<number>,
+    responseTimeMs: FieldResult<number>,
+    redirects: FieldResult<number>,
+    finalUrl: FieldResult<string | null>
 }
 
 export interface MailResult {
     status: Status,
-    mxRecords: {
-        data: MXRecordsType[],
-        status: string
-    },
-    spf: {
-        data: string | null,
-        status: string
-    },
-    dmarc: {
-        data: string | null,
-        status: string
-    },
-    dkim: {
-        data: boolean,
-        status: string
-    }
+    mxRecords: FieldResult<MXRecordsType[]>,
+    spf: FieldResult<string | null>,
+    dmarc: FieldResult<string | null>,
+    dkim: FieldResult<boolean>
 }
+
+export type NameServerType = string | { [ns: string]: string | string[] }
 
 export type MXRecordsType = {
     host: string,
     priority: number
 }
 
-export type CardFieldValue<T, S extends string> = {
+export interface FieldResult<T> {
     data: T,
-    status: S
-};
-export type CardValue = Status | string | string[] | number | boolean | MXRecordsType | null;
-
-export interface DataLines { 
-    boolenData: {
-        data: boolean,
-        status: string
-    },
-    stringNullData: {
-        data: string | null,
-        status: string
-    },
-    arrayMXData: {
-        data: MXRecordsType[],
-        status: string
-    },
-    numberData: {
-        data: number,
-        status: string
-    },
-    numberNullData: {
-        data: number | null,
-        status: string
-    },
-    arrayStringData: {
-        data: string[],
-        status: string
-    }
+    status: Status
 }

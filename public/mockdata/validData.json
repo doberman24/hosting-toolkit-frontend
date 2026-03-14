@@ -10,9 +10,19 @@
     "dns": {
       "status": "ok",
       "aRecords": {"data": ["93.184.216.34"], "status": "ok"},
-      "aaaaRecords": {"data": [], "status": "warning"},
+      "aaaaRecords": {"data": [], "status": "empty"},
       "ttl": {"data": 3600, "status": "ok"},
-      "nameservers": {"data": ["ns1.example.com", "ns2.example.com"], "status": "ok"}
+      "nameservers": {"data": [
+        {"ns3.example.com": "not_resolve"}, 
+        "ns1.example.com", 
+        {
+          "dns.google.ddddffffffffffeed": [
+            "warning_soa",
+            "warning_resolve"
+          ]
+        }, 
+        "ns2.example.com"], 
+      "status": "not_correct"}
     },
     "ssl": {
       "status": "warning",

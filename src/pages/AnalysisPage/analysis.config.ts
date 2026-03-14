@@ -71,7 +71,7 @@ export const emptyStatuses = {
         not_found: 'A-записи не найдены'
     },
     aaaaRecords: {
-        warning: 'IPv6 не настроен',
+        empty: 'IPv6 не настроен',
         not_found: 'AAAA-записи не найдены'
     },
     ttl: {
@@ -80,7 +80,12 @@ export const emptyStatuses = {
     },
     nameservers: {
         empty: '—',
-        undefined: 'NS-серверы не определены'
+        undefined: 'NS-серверы не определены',
+        not_correct: {
+            not_resolve: 'Не резолвится',
+            warning_soa: 'Аномальный SOA', 
+            warning_resolve: 'Посторонний сервер'
+        }
     },
     issuer: {
         empty: 'Сертификат не найден',

@@ -18,12 +18,12 @@ export const getAnalysis = createAsyncThunk<AnalysisResponse, string, {rejectVal
      async (domain, {rejectWithValue}) => {
         try {
             const data: AnalysisResponse = await api.getAnalysisData(domain);
-            // return data;
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                resolve(data);
-                }, 3000);
-            });
+            return data;
+            // return new Promise((resolve) => {
+            //     setTimeout(() => {
+            //     resolve(data);
+            //     }, 3000);
+            // });
         }
         catch (error: unknown) {
             const axiosError = error as AxiosError
