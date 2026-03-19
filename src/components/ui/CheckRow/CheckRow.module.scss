@@ -24,19 +24,28 @@
 .descriptionValue {
     display: flex;
     gap: 20px;
+    padding: 2px 0;
+}
+.descriptionValue p,
+.warningStatus {
+    color: vars.$color-accent;
+    font-size: vars.$size-small;
+}
+.warningStatus {
+    padding-top: 4px;
 }
 
-.fullValue {
-    min-width: 270px;
-}
-
-.descriptionValueNS {
-    display: flex;
+.descriptionValueNS,
+.notOkValue {
+    display: grid;
+    grid-template-columns: fit-content(50%) 1fr;
     width: 100%;
-    align-items: center;
+    gap: 20px;
+    // align-items: center;
 }
 .nsWarns {
     display: flex;
     flex-direction: column;
-    padding: 5px;
+    justify-items: center;
+    padding-top: 5px;
 }

@@ -76,7 +76,8 @@ export const emptyStatuses = {
     },
     ttl: {
         empty: '—',
-        undefined: '—'
+        undefined: '—',
+        warning_status: 'Подозрительный TTL'
     },
     nameservers: {
         empty: '—',
@@ -88,20 +89,28 @@ export const emptyStatuses = {
         }
     },
     issuer: {
-        empty: 'Сертификат не найден',
-        undefined: 'Сертификат отсутствует  '
+        empty: '—',
+        undefined: '—',
+        broken_chain: 'Цепочка невалидна',
+        self_signed: 'Самоподписанный сертификат',
+        invalid_domain: 'Домен сертификата не совпадает',
     },
     validFrom:{
         empty: '—',
-        undefined: '—'
+        undefined: '—',
+        too_early: 'Еще не наступило'
     },
     validTo: {
         empty: '—',
-        undefined: 'Срок действия не определён'
+        undefined: 'Срок действия не определён',
+        expire: 'Просрочено',
     },
     daysRemaining: {
         empty: '—',
-        expire: 'Срок действия истёк'
+        expire: 'Сертификат просрочен',
+        low_days: 'Срок подходит к концу',
+        critical_low: 'Срок действия почти истек',
+        undefined: '—'
     },
     protocol: {
         empty: '—',

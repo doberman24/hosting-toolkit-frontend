@@ -16,7 +16,7 @@
         {"ns3.example.com": "not_resolve"}, 
         "ns1.example.com", 
         {
-          "dns.google.ddddffffffffffeed": [
+          "dns.google": [
             "warning_soa",
             "warning_resolve"
           ]

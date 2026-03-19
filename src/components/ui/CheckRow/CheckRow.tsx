@@ -7,7 +7,18 @@ const CheckRow = ({fieldName, fieldValue}: {fieldName: FieldName, fieldValue: Fi
 
   const getConvertValue = (fieldValueData: unknown): ReactElement => {
     if (!Array.isArray(fieldValueData)) {
-          return <div className={styles.description}>{String(fieldValueData)}</div>;
+      if (typeof fieldValueData === 'object') {
+        return <div className={styles.description}>
+          {Object.entries(fieldValueData as {[x: string]: string}).map(([keyFieldValue, valueField]) => {
+            console.log(valueField);
+            return <ul className={styles.notOkValue}> 
+              <li className={styles.warningValue}>{keyFieldValue}</li>
+              <li className={styles.warningStatus}>{String(valueField)}</li>
+            </ul>
+          })}
+        </div>
+      }
+      return <div className={styles.description}>{String(fieldValueData)}</div>;
     }
     return ( <ul className={styles.description}> 
       {fieldValueData.map((value, count) => {
@@ -50,14 +61,17 @@ const CheckRow = ({fieldName, fieldValue}: {fieldName: FieldName, fieldValue: Fi
         return item; 
       }) 
     }
+    if (fieldValue.status !== 'ok') {
+      return {[fieldValue.data as string]: emptyStatuses[fieldName][statusKey]};
+    }
     return fieldValue.data;
   }
 
   const checkValidDate = (fieldName: FieldName, fieldValue: FieldResult<unknown>): unknown => {
     if (typeof fieldValue?.data === 'string') {
       const date = new Date(fieldValue?.data);
-      if (!isNaN(date.getTime()) && /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}:\d{2}Z)?$/.test(fieldValue?.data)) {
-        fieldValue = {...fieldValue, data: date.toLocaleDateString()}
+      if (!isNaN(date.getTime()) && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(fieldValue?.data)) {
+        fieldValue = {...fieldValue, data: date.toLocaleDateString('ru-RU', {day: 'numeric', month: 'long', year: 'numeric'})};
       }
     }
     return checkExistData(fieldName as EmptyValueKeys, fieldValue);

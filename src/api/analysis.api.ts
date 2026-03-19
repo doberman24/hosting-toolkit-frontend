@@ -10,7 +10,7 @@ export class Api implements IApi {
     async getAnalysisData (domain: string): Promise<AnalysisResponse> {
         const response = await axios({
             method: 'get',
-            url: `${domain === 'example.com' ? './mockdata/validData.json' : './mockdata/notValidData.json'}`,
+            url: `http://localhost:3030/api/check-domain?domain=${domain}`
         });
         return { 
             data: response.data,
