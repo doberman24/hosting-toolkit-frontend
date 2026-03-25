@@ -51,7 +51,9 @@ export const keyMapping = {
     daysRemaining: 'Осталось дней',
     protocol: 'Протокол',
     statusCode: 'Код ответа',
-    responseTimeMs: 'Время ответа',
+    responseTimeMs: 'Время загрузки',
+    ttfbMs: 'Ответ сервера (TTFB)',
+    serverTimeMs: 'Обработка на сервере',
     redirects: 'Редиректы',
     finalUrl: 'Итоговый URL',
     mxRecords: 'MX-записи',
@@ -118,19 +120,36 @@ export const emptyStatuses = {
     },
     statusCode: {
         empty: '—',
-        not_response: 'Сервер не отвечает'
+        not_response: 'Сервер не отвечает',
+        error_4xx: 'Страница недоступна',
+        error_5xx: 'Ошибка сервера'
     },
     responseTimeMs: {
         empty: '—',
-        not_response: 'Нет ответа'
+        not_response: 'Нет ответа',
+        critical: 'Очень медленная загрузка',
+        slow: 'Медленная загрузка'
+    },
+    ttfbMs: {
+        empty: '—',
+        not_response: 'Нет ответа',
+        critical: 'Критически долгий ответ',
+        slow: 'Долгий ответ'
+    },
+    serverTimeMs: {
+        empty: '—',
+        not_response: 'Нет ответа',
+        critical: 'Критчески долгая обработка',
+        slow: 'Долгая обработка'
     },
     redirects: {
-        ok: 'Нет',
-        many_redirects: 'слишком много редиректов',
+        excessive_redirects: 'Избыточно редиректов',
+        too_mach_redirects: 'Слишком много редиректов',
         undefined: '—'
     },
     finalUrl: {
-        warning: '—',
+        empty: '—',
+        not_protected: 'Соединение не защищено',
         undefined: 'Не получен'
     },
     mxRecords: {
