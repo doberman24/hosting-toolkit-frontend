@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import styles from './AnalysisPage.module.scss';
 import InputMain from "@/components/ui/Inputs/InputMain";
 import Card from "@/components/ui/Card/Card";
+import DNSCard from "@/components/ui/Card/DNSCard/DNSCard";
 import ButtonMain from "@/components/ui/Buttons/ButtonMain";
 import LoaderMain from "@/components/ui/Loaders/LoaderMain";
 import { configStatusDNS, configStatusHTTP, configStatusMail, configStatusSSL } from "./analysis.config";
@@ -50,7 +51,7 @@ const AnalysisPage = () => {
         }
       </div>
       <div className={styles.responseBlock}>
-        <Card nameData={'DNS Configuration'} data={analysisData?.checks.dns} statusCard={configStatusDNS} />
+        <DNSCard nameData={'DNS Configuration'} data={analysisData?.checks.dns} statusCard={configStatusDNS} />
         <Card nameData={'SSL Certificate'} data={analysisData?.checks.ssl} statusCard={configStatusSSL} />
         <Card nameData={'HTTP Status'} data={analysisData?.checks.http} statusCard={configStatusHTTP} />
         <Card nameData={'Mail Security'} data={analysisData?.checks.mail} statusCard={configStatusMail} />

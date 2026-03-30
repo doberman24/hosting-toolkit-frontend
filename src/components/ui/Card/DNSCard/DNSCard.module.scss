@@ -1,0 +1,174 @@
+@use '@/styles/variables' as vars;
+
+.cardBlock {
+    border: 2px solid vars.$border-color-card;
+    box-shadow: vars.$shad-card;
+    border-radius: 10px;
+    background-color: vars.$color-bg-card;
+    width: 600px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;    
+}
+.cardBlock:hover {
+    transform: scale(0.995);  
+    background-color: vars.$color-solid-card; 
+}
+
+.headerCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.cardBlock p {
+    font-size: vars.$size-text;
+    font-weight: vars.$fw-light;
+    color: vars.$color-text-second;
+}
+
+.showStatus {
+    position: absolute;
+    display: flex;
+    align-self: end;
+    flex-direction: row-reverse;
+    gap: 10px;
+    align-items: center;
+}
+.iconStatus {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.iconStatus.ok {
+    background-color: vars.$color-success;
+}
+.iconStatus.warning {
+    background-color: vars.$color-warning;
+}
+.iconStatus.error {
+    background-color: vars.$color-error;
+}
+.showStatus p {
+    font-size: vars.$size-small;
+    color: vars.$color-text-muted;
+    text-transform: uppercase;
+}
+
+.cardBlock:nth-child(1) {
+    justify-self: end;
+    align-self: end;
+}
+
+.dataBlock {
+    border: 1px solid vars.$border-color-main;
+    border-radius: 8px;
+    margin: 20px 0 0;
+    padding: 10px 20px;
+    height: 100%;
+    
+}
+
+.cardDetailsA {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-bottom: 1px solid vars.$border-color-card;
+}
+.cardBlock:hover .dataBlock,
+.cardBlock:hover .noData {
+    border: 1px solid vars.$color-accent-soft;
+}
+
+.checkRowBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+// .checkRowBlock:not(:last-child) {
+//     border-bottom: 1px solid vars.$border-color-card;
+// }
+
+.nameProperty {
+    font-size: vars.$size-text;
+    color: vars.$color-text-second;
+}
+
+
+.description,
+.dataValueForStatus {
+    padding-left: 20px;
+    font-size: vars.$size-subtitle;
+    font-weight: vars.$fw-regular;
+}
+.descriptionValue {
+    display: flex;
+    gap: 20px;
+    padding: 2px 0;
+}
+
+.noData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    font-size: vars.$size-subtitle;
+    font-weight: vars.$fw-regular;
+    color: vars.$color-text-second;
+    gap: 15px;
+    border: 1px solid vars.$border-color-main;
+    border-radius: 8px;
+    margin: 20px 0 0;
+    transition: all 0.2s ease;
+}
+h4, b {
+    text-transform: uppercase;
+    font-weight: vars.$fw-semibold;
+    color: vars.$color-text-main;
+    margin-right: 10px;
+}
+.noData p {
+    text-align: center;
+    line-height: 1.5;
+}
+
+.summaryBlock .noData {
+    height: fit-content;
+    gap: 5px;
+    padding: 10px;
+    margin: 10px 0 0;
+    border: none;
+}
+
+.dataWithStatusBlock {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    // align-items: center;
+}
+.dataStatus {
+    font-size: vars.$size-text;
+    text-align: end;
+}
+.dataStatus.warning {
+    color: vars.$color-accent;
+}
+.dataStatus.ok {
+    color: vars.$color-success;
+}
+.dataStatus.error {
+    color: vars.$color-error;
+}
+
+.empty {
+    color: vars.$color-text-muted;
+    font-size: vars.$size-text;
+    font-style: italic;
+}
