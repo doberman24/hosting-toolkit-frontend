@@ -85,6 +85,7 @@ export const emptyStatuses = {
         empty: '—',
         undefined: 'NS-серверы не определены',
         not_correct: {
+            ok: 'ok',
             not_resolve: 'Не резолвится',
             warning_soa: 'Аномальный SOA', 
             warning_resolve: 'Посторонний сервер'

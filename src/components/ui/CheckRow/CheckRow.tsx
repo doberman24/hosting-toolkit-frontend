@@ -10,7 +10,7 @@ const CheckRow = ({fieldName, fieldValue}: {fieldName: FieldName, fieldValue: Fi
       if (typeof fieldValueData === 'object') {
         return <div className={styles.description}>
           {Object.entries(fieldValueData as {[x: string]: string}).map(([keyFieldValue, valueField]) => {
-            console.log(valueField);
+            // console.log(valueField);
             return <ul className={styles.notOkValue}> 
               <li className={styles.warningValue}>{keyFieldValue}</li>
               <li className={styles.warningStatus}>{String(valueField)}</li>
