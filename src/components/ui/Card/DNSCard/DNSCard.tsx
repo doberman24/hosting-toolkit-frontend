@@ -35,14 +35,14 @@ const DNSCard = ({nameData, data, statusCard}: {nameData: string, data: DNSResul
 //   console.log(data?.aRecords.data);
     return (
         <div className={styles.cardBlock}>
-            <div className={styles.headerCard}>
+            <div className={`${styles.headerCard} ${data && styles[data.status]}`}>
                 <h2><span><GoGlobe/></span><span>{nameData}</span></h2>
-                {data && <p>{statusCard.getStatus(data.status)}</p>}
-                {data && <div className={`${styles.showStatus} ${styles[data.status]}`}>
-                    <p>
-                        <span>{setClassStatus(data.status) === 'error' ? <MdOutlineCancel/> : setClassStatus(data.status) === 'warning' ? <HiOutlineExclamation/> : <HiOutlineCheckCircle/>}</span>
+                {data && <p className={styles.statusMain}>{statusCard.getStatus(data.status)}</p>}
+                {data && <div className={`${styles.showStatus}`}>
+                    <span className={styles.iconStatus}>
+                        <p>{setClassStatus(data.status) === 'error' ? <MdOutlineCancel/> : setClassStatus(data.status) === 'warning' ? <HiOutlineExclamation/> : <HiOutlineCheckCircle/>}</p>
                         {data.status}
-                    </p>
+                    </span>
                 </div>
                 }
             </div>

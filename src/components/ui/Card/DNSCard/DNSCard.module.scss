@@ -34,10 +34,26 @@
     align-items: center;
     color: vars.$color-accent;
 }
-.cardBlock p {
+.headerCard .statusMain {
     font-size: vars.$size-text;
     font-weight: vars.$fw-light;
-    color: vars.$color-text-second;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+.ok .statusMain {
+    color: vars.$color-success;
+    background-color: rgba(vars.$color-success, 0.2);
+    box-shadow: 0 0 1px 1px rgba(vars.$color-success, 0.5);
+}
+.warning .statusMain {
+    color: vars.$color-warning;
+    background-color: rgba(vars.$color-warning, 0.2);
+    box-shadow: 0 0 1px 1px rgba(vars.$color-warning, 0.5);
+}
+.error .statusMain {
+    color: vars.$color-error;
+    background-color: rgba(vars.$color-error, 0.2);    
+    box-shadow: 0 0 1px 1px rgba(vars.$color-error, 0.5);
 }
 
 .showStatus {
@@ -48,27 +64,22 @@
     gap: 10px;
     align-items: center;
 }
-.iconStatus {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-}
-.showStatus.ok p {
+.ok .iconStatus {
     border: vars.$color-success solid 1px;
     color: vars.$color-success;
     box-shadow: inset 0 0 6px 12px rgb(vars.$color-success, 0.15);
 }
-.showStatus.warning p{
+.warning .iconStatus {
     border: vars.$color-warning solid 1px;
     color: vars.$color-warning;
     box-shadow: inset 0 0 6px 12px rgba(vars.$color-warning, 0.15);
 }
-.showStatus.error p {
+.error .iconStatus {
     border: vars.$color-error solid 1px;
     color: vars.$color-error;
     box-shadow: inset 0 0 6px 12px rgba(vars.$color-error, 0.15);
 }
-.showStatus p {
+.iconStatus {
     display: flex;
     font-size: vars.$size-small;
     color: vars.$color-text-muted;
@@ -77,21 +88,16 @@
     border-radius: 50px;
     gap: 5px;
 }
-.showStatus p span {
+.iconStatus p {
     display: flex;
     align-items: center;
     font-size: vars.$size-text;
 }
 
-.cardBlock:nth-child(1) {
-    justify-self: end;
-    align-self: end;
-}
-
 .dataBlock {
     border: 1px solid vars.$border-color-main;
     border-radius: 8px;
-    margin: 20px 0 0;
+    margin: 15px 0 0;
     padding: 10px 20px;
     height: 100%;
     
@@ -120,6 +126,11 @@
 }
 
 
+.description,
+.descriptionNS,
+.descriptionValue {
+    font-family: vars.$font-data;
+}
 .description {
     padding-left: 20px;
     font-size: vars.$size-subtitle;
@@ -146,7 +157,7 @@
     margin: 20px 0 0;
     transition: all 0.2s ease;
 }
-h4, b {
+h4 {
     text-transform: uppercase;
     font-weight: vars.$fw-semibold;
     color: vars.$color-text-main;
@@ -155,14 +166,6 @@ h4, b {
 .noData p {
     text-align: center;
     line-height: 1.5;
-}
-
-.summaryBlock .noData {
-    height: fit-content;
-    gap: 5px;
-    padding: 10px;
-    margin: 10px 0 0;
-    border: none;
 }
 
 .dataWithStatusBlock {
