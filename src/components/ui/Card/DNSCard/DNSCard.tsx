@@ -1,23 +1,13 @@
 import styles from './DNSCard.module.scss';
 import { emptyStatuses, keyMapping, type EmptyValueKeys, type StatusDescription } from '@/pages/AnalysisPage/analysis.config';
-import type { DNSResult, FieldResult } from '@/types/analysis.types';
-import { GoGlobe } from 'react-icons/go';
+import type { DNSResult } from '@/types/analysis.types';
 import { HiOutlineCheckCircle, HiOutlineExclamation } from 'react-icons/hi';
 import { MdOutlineCancel } from 'react-icons/md';
+import Card from "@/components/ui/Card/Card";
+import { checkEmptyData } from '@/utils/checkEmtyData';
+import { setClassStatus, setStatusData } from '@/utils/setStatusData';
 
 const DNSCard = ({nameData, data, statusCard}: {nameData: string, data: DNSResult | undefined, statusCard: StatusDescription}) => {
-  
-    const checkEmptyData = (value: FieldResult<string[] | number | null>) => {
-        if (!value.data || Array.isArray(value.data) && value?.data.length === 0) {
-            return '- пусто -';
-        }
-        return value.data ? value.data : '- пусто -';
-    }
-
-    const setStatusData = (status: string) => {
-        if (status !== 'ok') return emptyStatuses.ttl[status as keyof typeof emptyStatuses[EmptyValueKeys]];
-        return 'ok';
-    }
 
     const nsWarningsTransform = (warn: string[] | string) => {
         if (typeof warn === 'string') {
@@ -26,27 +16,10 @@ const DNSCard = ({nameData, data, statusCard}: {nameData: string, data: DNSResul
         return warn.map((value) => emptyStatuses.nameservers.not_correct[value as keyof typeof emptyStatuses.nameservers.not_correct]);
     }
 
-    const setClassStatus = (status: string | string[]) => {
-        if (status === 'ok') return 'ok';
-        if (status === 'not_found' || status === 'undefined' || status === 'not_resolve') return 'error';
-        return 'warning';
-    }
-
 //   console.log(data?.aRecords.data);
     return (
-        <div className={styles.cardBlock}>
-            <div className={`${styles.headerCard} ${data && styles[data.status]}`}>
-                <h2><span><GoGlobe/></span><span>{nameData}</span></h2>
-                {data && <p className={styles.statusMain}>{statusCard.getStatus(data.status)}</p>}
-                {data && <div className={`${styles.showStatus}`}>
-                    <span className={styles.iconStatus}>
-                        <p>{setClassStatus(data.status) === 'error' ? <MdOutlineCancel/> : setClassStatus(data.status) === 'warning' ? <HiOutlineExclamation/> : <HiOutlineCheckCircle/>}</p>
-                        {data.status}
-                    </span>
-                </div>
-                }
-            </div>
-            {data ? <div className={styles.dataBlock}>
+        <Card data={data} nameData={nameData} statusCard={statusCard}> 
+            {data && <div className={styles.dataBlock}>
                 <ul className={styles.cardDetailsA}>
                     {Object.entries(data).map(([key, value]) => {
                         const keys = ['aRecords', 'aaaaRecords'];
@@ -82,7 +55,7 @@ const DNSCard = ({nameData, data, statusCard}: {nameData: string, data: DNSResul
                                     setClassStatus(data.ttl.status) === 'warning' ? <HiOutlineExclamation/> : 
                                     <HiOutlineCheckCircle/>}
                             </p>}
-                            <p>{setStatusData(data.ttl.status)}</p>
+                            <p>{setStatusData(data.ttl.status, 'ttl')}</p>
                         </div>
                     </div>
                 </div>
@@ -114,13 +87,8 @@ const DNSCard = ({nameData, data, statusCard}: {nameData: string, data: DNSResul
                         className={`${styles.description} ${styles.empty}`}
                     >- пусто -</div>}
                 </div>
-            </div> :
-            <div className={styles.noData}>
-                <h4>Проверка не проиводилась</h4>
-                <p>Для вывода результатов укажите домен <br />и нажмите "Проверить"</p>
-            </div>
-            }        
-        </div>
+            </div>}
+        </Card> 
     )
 }
 

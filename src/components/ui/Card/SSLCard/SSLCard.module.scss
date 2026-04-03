@@ -12,12 +12,6 @@
     }
 }
 
-.cardDetailsA {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    border-bottom: 1px solid vars.$border-color-card;
-}
-
 .checkRowBlock {
     display: flex;
     flex-direction: column;
@@ -30,20 +24,11 @@
     color: vars.$color-text-second;
 }
 
-.description,
-.descriptionNS,
-.descriptionValue {
-    font-family: vars.$font-data;
-}
 .description {
+    font-family: vars.$font-data;
     padding-left: 20px;
     font-size: vars.$size-subtitle;
     font-weight: vars.$fw-regular;
-}
-.descriptionValue {
-    display: flex;
-    gap: 20px;
-    padding: 2px 0;
 }
 
 .dataWithStatusBlock {
@@ -53,12 +38,6 @@
     width: 100%;
     gap: 20px;
     // align-items: center;
-}
-
-.dataStatusList {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
 }
 
 .dataStatus {
