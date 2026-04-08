@@ -22,9 +22,73 @@ const SSLCard = ({nameData, data, statusCard}: {nameData: string, data: SSLResul
 //   console.log(data);
     return (
         <Card data={data} nameData={nameData} statusCard={statusCard}> 
-            {data && <ul className={styles.dataBlock}>
-                {Object.entries(data).filter(([key]) => key !== 'status').map(([key, value]) => (
-                    <li key={key} className={styles.checkRowBlock}>
+            {data && <div className={styles.dataBlock}>
+                <ul className={styles.sslNameBlock}>
+                    {Object.entries(data).filter(([key]) => key === 'issuer' || key === 'protocol').map(([key, value]) => {
+                        const setClass = setClassStatus(value.status, false);
+                        const statusData = setStatusData(value.status, key as EmptyValueKeys, false);
+                        const selfSigned: string = value.status === 'self_signed' ? value.status : '';
+                        return (
+                        <li key={key} className={`${styles.checkRowBlock} ${styles[key]}`}>
+                            <div className={styles.nameProperty}>
+                                {keyMapping[key as FieldName]} :
+                            </div>
+                            <div className={`${styles.dataWithStatusBlock} ${styles[selfSigned]}`}>
+                                {!selfSigned && <div className={`${styles.description} ${!value.data ? styles.empty : ''}`}>
+                                    {checkEmptyData(value)}
+                                </div>}
+                                {setClass && <div className={`${styles.dataStatus} ${styles[setClass]}`}>
+                                    {value.data && <p>
+                                        {setClass === 'error' ? <MdOutlineCancel/> : 
+                                            setClass === 'warning' ? <HiOutlineExclamation/> : 
+                                            <HiOutlineCheckCircle/>}
+                                    </p>}
+                                    {statusData && value.data && <p>{statusData}</p>}
+                                </div>}
+
+                            </div>
+                        </li>
+                    )})}
+                </ul>
+                <ul className={styles.dateBlock}>
+                    {Object.entries(data).filter(([key]) => key.includes('valid')).map(([key, value]) => (
+                        <li key={key} className={styles.checkRowBlock}>
+                            <div className={styles.nameProperty}>
+                                {keyMapping[key as FieldName]} :
+                            </div>
+                            <div className={styles.dataWithStatusBlock}>
+                                <div className={`${styles.description} ${!value.data ? styles.empty : ''}`}>
+                                    {checkValidDate(checkEmptyData(value) as string)}
+                                </div>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+                <div className={`${styles.daysRemainingBlock} ${styles[setClassStatus(data.daysRemaining.status)]}`}>
+                    <div className={styles.checkRowBlock}>
+                        <div className={styles.nameProperty}>
+                            {keyMapping['daysRemaining']} :
+                        </div>
+                        <div className={styles.dataWithStatusBlock}>
+                            <div className={`${styles.description} ${!data.daysRemaining.data ? styles.empty : ''}`}>
+                                {checkEmptyData(data.daysRemaining)}
+                            </div>
+                            <div className={`${styles.dataStatus} ${styles[setClassStatus(data.daysRemaining.status)]}`}>
+                                {data.daysRemaining.data && <p>
+                                    {setClassStatus(data.daysRemaining.status) === 'error' ? <MdOutlineCancel/> : 
+                                        setClassStatus(data.daysRemaining.status) === 'warning' ? <HiOutlineExclamation/> : 
+                                        <HiOutlineCheckCircle/>}
+                                </p>}
+                                <p>{setStatusData(data.daysRemaining.status, 'daysRemaining')}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                {/* {Object.entries(data).filter(([key]) => key !== 'status').map(([key, value]) => (
+                    <li key={key} className={`${styles.checkRowBlock} ${styles[key]}`}>
                         <div className={styles.nameProperty}>
                             {keyMapping[key as FieldName]} :
                         </div>
@@ -41,8 +105,8 @@ const SSLCard = ({nameData, data, statusCard}: {nameData: string, data: SSLResul
 
                         </div>
                     </li>
-                ))}
-            </ul>}
+                ))} */}
+            </div>}
         </Card>
     )
 }

@@ -1,7 +1,6 @@
 import styles from './Card.module.scss';
 import { type StatusDescription } from '@/pages/AnalysisPage/analysis.config';
 import type { DNSResult, SSLResult } from '@/types/analysis.types';
-import { setClassStatus } from '@/utils/setStatusData';
 import { GoGlobe, GoShieldCheck } from 'react-icons/go';
 import { HiOutlineCheckCircle, HiOutlineExclamation } from 'react-icons/hi';
 import { MdOutlineCancel } from 'react-icons/md';
@@ -26,7 +25,7 @@ const Card = ({children, data, nameData, statusCard}: {
         {data && <p className={styles.statusMain}>{statusCard.getStatus(data.status)}</p>}
         {data && <div className={`${styles.showStatus}`}>
           <span className={styles.iconStatus}>
-            <p>{setClassStatus(data.status) === 'error' ? <MdOutlineCancel/> : setClassStatus(data.status) === 'warning' ? <HiOutlineExclamation/> : <HiOutlineCheckCircle/>}</p>
+            <p>{data.status === 'error' ? <MdOutlineCancel/> : data.status === 'warning' ? <HiOutlineExclamation/> : <HiOutlineCheckCircle/>}</p>
             {data.status}
           </span>
         </div>}

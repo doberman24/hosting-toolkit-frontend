@@ -12,11 +12,33 @@
     }
 }
 
+.sslNameBlock {
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    border-bottom: 1px solid vars.$border-color-card;
+    gap: 20px;
+}
+
+.dateBlock {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-bottom: 1px solid vars.$border-color-card;
+}
+
+.daysRemainingBlock {
+    display: grid;
+    grid-template-columns: 1fr;    
+}
+
 .checkRowBlock {
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 10px 0;
+}
+
+.self_signed p {
+    font-size: vars.$size-subtitle;
 }
 
 .nameProperty {
@@ -26,31 +48,43 @@
 
 .description {
     font-family: vars.$font-data;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     padding-left: 20px;
     font-size: vars.$size-subtitle;
     font-weight: vars.$fw-regular;
 }
 
 .dataWithStatusBlock {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    gap: 20px;
-    // align-items: center;
+    gap: 7px;
+    
+    &.notOk {
+        grid-template-columns: 1fr;        
+    }
+}
+.daysRemainingBlock .dataWithStatusBlock {
+    display: grid;
+    grid-template-columns: fit-content(50%) 1fr;
+    align-items: center;
+}
+.daysRemainingBlock .dataStatus {
+    text-align: end;
+    justify-content: end;
 }
 
 .dataStatus {
     font-size: vars.$size-text;
-    text-align: end;
     display: flex;
-    justify-content: end;
     gap: 10px;
     height: 100%;
     align-items: center;
 }
 .dataStatus.warning p {
-    color: vars.$color-accent;
+    color: vars.$color-warning;
 }
 .dataStatus.ok p {
     color: vars.$color-success;
@@ -61,7 +95,8 @@
 .dataStatus p:first-child {
     height: 100%;
     display: flex;
-    align-items: center;
+    // align-items: center;
+    padding-top: 2.5px;
     font-size: vars.$size-text;
 }
 

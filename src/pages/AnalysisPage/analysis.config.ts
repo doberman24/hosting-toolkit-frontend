@@ -117,7 +117,9 @@ export const emptyStatuses = {
     },
     protocol: {
         empty: '—',
-        undefined: 'Протокол не определён'
+        undefined: 'Протокол не определён',
+        older: 'Не поддерживается',
+        old: 'Устарел'
     },
     statusCode: {
         empty: '—',

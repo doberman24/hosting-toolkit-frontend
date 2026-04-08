@@ -3,7 +3,6 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import React, { useState } from "react";
 import styles from './AnalysisPage.module.scss';
 import InputMain from "@/components/ui/Inputs/InputMain";
-import Card from "@/components/ui/Card/Card";
 import DNSCard from "@/components/ui/Card/DNSCard/DNSCard";
 import SSLCard from "@/components/ui/Card/SSLCard/SSLCard";
 import ButtonMain from "@/components/ui/Buttons/ButtonMain";
